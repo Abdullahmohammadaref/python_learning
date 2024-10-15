@@ -1,6 +1,7 @@
 def main():
     user_answere = input().strip().lower()
     print(check(user_answere))
+    print("hello world")
 
 def check(answere):
     match answere:
