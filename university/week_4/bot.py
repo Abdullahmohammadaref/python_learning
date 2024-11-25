@@ -1,3 +1,21 @@
+import sys
+
+class Library:
+
+    def __init__(self):
+        self.books = []
+        self.members = []
+
+    def add_book(self, book):
+        self.books.append(book)
+        for book in self.books:
+            print(f"- {book.title} {book.isbn} {book.author}")
+
+    def add_member(self, member):
+        self.members.append(member)
+        for member in self.members:
+            print(f"- {member.name} {member.member_id} ")
+
 class Book:
     def __init__(self, title, author, isbn):
         self.title = title
@@ -6,16 +24,12 @@ class Book:
         self.is_checked_out = False
 
     def check_out(self):
-        if self.is_checked_out:
-            return "Book is already checked out."
         self.is_checked_out = True
-        return "Book checked out successfully."
+        print("book is checked out")
 
     def return_book(self):
-        if not self.is_checked_out:
-            return "Book is not checked out."
         self.is_checked_out = False
-        return "Book returned successfully."
+        print("book returned")
 
 class Member:
     def __init__(self, name, member_id):
@@ -23,109 +37,78 @@ class Member:
         self.member_id = member_id
         self.borrowed_books = []
 
-    def borrow_book(self, book):
-        if book.is_checked_out:
-            return "Book is not available."
-        self.borrowed_books.append(book)
-        book.check_out()
-        return "Book borrowed successfully."
+    def borrow_book(self, library, book_isbn):
+        for book in library.books:
+            if book.isbn == book_isbn:
+                if book.is_checked_out:
+                    print("book is already checked out")
+                    return
+                self.borrowed_books.append(book)
+                book.check_out()
+                for borrowed_book in self.borrowed_books:
+                    print(f"- {borrowed_book.title}")
+                return
+        print("Book or member dont exist.")
 
-    def return_book(self, book):
-        if book in self.borrowed_books:
-            self.borrowed_books.remove(book)
-            book.return_book()
-            return "Book returned successfully."
-        return "Book not found in borrowed books."
+    def return_book(self, library, book_isbn):
+        for book in library.books:
+            if book.isbn == book_isbn:
+                self.borrowed_books.remove(book)
+                book.return_book()
+                for borrowed_book in self.borrowed_books:
+                    print(f"- {borrowed_book.title}")
+                return
+        print("Book or member dont exist.")
 
-class Library:
-    def __init__(self):
-        self.books = []
-        self.members = []
-
-    def add_book(self, book):
-        self.books.append(book)
-        print("Book added successfully.")
-        print("Current books:")
-        for book in self.books:
-            print(f"- {book.title} by {book.author} (ISBN: {book.isbn})")
-
-    def add_member(self, member):
-        self.members.append(member)
-        print("Member added successfully.")
-        print("Current members:")
-        for member in self.members:
-            print(f"- {member.name} (ID: {member.member_id})")
-
-    def borrow_book(self, member_id, isbn):
-        for member in self.members:
-            if member.member_id == member_id:
-                for book in self.books:
-                    if book.isbn == isbn:
-                        if book.is_checked_out:
-                            print("Book is already checked out.")
-                            return
-                        member.borrow_book(book)
-                        print("Book borrowed successfully.")
-                        print(f"{member.name}'s borrowed books:")
-                        for borrowed_book in member.borrowed_books:
-                            print(f"- {borrowed_book.title}")
-                        return
-        print("Member or book not found.")
-
-    def return_book(self, member_id, isbn):
-        for member in self.members:
-            if member.member_id == member_id:
-                for book in member.borrowed_books:
-                    if book.isbn == isbn:
-                        member.return_book(book)
-                        print("Book returned successfully.")
-                        print(f"{member.name}'s borrowed books:")
-                        for borrowed_book in member.borrowed_books:
-                            print(f"- {borrowed_book.title}")
-                        return
-        print("Book not found in member's borrowed books.")
+def user_prompt(list_options):
+    while True:
+        try:
+            selected_option = input(f"Select an option: {' '.join(f'{k} ' for k in list_options)} ")
+            for option in list_options:
+                if selected_option in list_options:
+                    return selected_option
+                elif selected_option in option:
+                    return option
+                else:
+                    raise ValueError
+        except ValueError:
+            print("select one of the available options")
 
 def main():
     library = Library()
-
     while True:
-        print("\nLibrary Management System")
-        print("1. Add Book")
-        print("2. Add Member")
-        print("3. Borrow Book")
-        print("4. Return Book")
-        print("5. Exit")
-
-        while True:
-            try:
-                choice = int(input("Enter your choice: "))
-                break
-            except ValueError:
-                print("Invalid input. Please enter a number between 1 and 5.")
-
-        if choice == 1:
-            title = input("Enter book title: ")
-            author = input("Enter author name: ")
-            isbn = input("Enter ISBN: ")
-            book = Book(title, author, isbn)
-            library.add_book(book)
-        elif choice == 2:
-            name = input("Enter member name: ")
-            member_id = input("Enter member ID: ")
-            member = Member(name, member_id)
-            library.add_member(member)
-        elif choice == 3:
-            member_id = input("Enter member ID: ")
-            isbn = input("Enter ISBN of book to borrow: ")
-            library.borrow_book(member_id, isbn)
-        elif choice == 4:
-            member_id = input("Enter member ID: ")
-            isbn = input("Enter ISBN of book to return: ")
-            library.return_book(member_id, isbn)
-        elif choice == 5:
-            break
-        else:
-            print("Invalid choice. Please enter a number between 1 and 5.")
-
-if __name__ == "__main__":
+        user_options = ["add new", "borrow/return", "exit program"]
+        add_new_options = ["book", "member"]
+        borrow_or_return_options = ["borrow", "return"]
+        user_request = user_prompt(user_options)
+        if user_request == user_options[0]:
+            add_new_request = user_prompt(add_new_options)
+            if add_new_request == add_new_options[0]:
+                new_book_title = input("Enter the new books' title: ")
+                new_book_author = input("Enter the new books' author: ")
+                new_book_isbn = input("Enter the new books' isbn: ")
+                new_book = Book(new_book_title, new_book_author, new_book_isbn)
+                library.add_book(new_book)
+            elif add_new_request == add_new_options[1]:
+                new_member_name = input("Enter the new members' name: ")
+                new_member_id = input("Enter the new members' ID: ")
+                new_member = Member(new_member_name, new_member_id)
+                library.add_member(new_member)
+        elif user_request == user_options[1]:
+            borrow_or_return_request = user_prompt(borrow_or_return_options)
+            if borrow_or_return_request == borrow_or_return_options[0]:
+                member_id = input("Enter the new members' ID: ")
+                isbn = input("Enter the new members' ISBN: ")
+                for member in library.members:
+                    if member.member_id == member_id:
+                        member.borrow_book(library, isbn)
+            elif borrow_or_return_request == borrow_or_return_options[1]:
+                member_id = input("Enter the new members' ID: ")
+                isbn = input("Enter the new members' ISBN: ")
+                for member in library.members:
+                    if member.member_id == member_id:
+                        member.return_book(library, isbn)
+        elif user_request == user_options[2]:
+            sys.exit()
+if __name__ == '__main__':
     main()
