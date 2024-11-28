@@ -116,9 +116,14 @@ if __name__ == '__main__':
 
 """
 
-number1 = int(input("Enter first number: "))
-number2 = int(input("Enter second number: "))
-if number1 % number2 == 0:
-    print("numbers are divisible")
-else:
-    print("numbers are not divisible")
+import sys
+
+num = 2
+if num <= 1:
+    print("Not prime")
+    sys.exit()
+for i in range(2, num):
+    if num % i == 0:
+        print("Not prime")
+        sys.exit()
+print("prime")
