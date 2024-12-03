@@ -1,0 +1,25 @@
+INIT sum := 0
+READ number 1
+sum := sum + number 1
+READ number 2
+sum := sum + number 2
+READ number 3
+sum := sum + number 3
+COMPUTE avg := sum / 3
+PRINT sum
+STOP
+
+Start
+READ num 1
+INIT max TO num 1
+READ num 2
+IF num 2 > max THEN
+SET max := num 2
+ENDIF
+READ num 3
+IF num 3 > max THEN
+SET max := num 3
+ENDIF
+PRINT max
+
+
