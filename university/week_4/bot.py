@@ -128,7 +128,7 @@ for i in range(2, num):
         sys.exit()
 print("prime")
 """
-
+"""
 // C Program to check for prime number using
 //  Simple Trial Division
 #include <stdbool.h>
@@ -166,3 +166,16 @@ int main() {
 
     return 0;
 }
+"""
+import numpy as np
+
+x = np.array([[1, 2], [3, 4]], dtype=np.float64)
+y = np.array([[5, 6], [7, 8]], dtype=np.float64)
+
+z = np.zeros_like(x)
+
+for i in range(len(x)):
+    for j in range(len(x[0])):
+        z[i][j] = x[i][j] + y[i][j]
+
+print(z)
