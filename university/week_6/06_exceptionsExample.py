@@ -11,7 +11,7 @@ https://wiki.python.org/moin/HandlingExceptions
 
 Sami Alsalamin, 2024, sami.alsalamin@gisma.com
 """
-
+"""
 print(5*"*", "Catch a specific error")
 try:
     print(1/0)   # Division by zero not possible -> Exception
@@ -108,21 +108,67 @@ except CustomError as e:
     
 # What to try out
 #################
-# - Write a Python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.
+# - Write a Python program that prompts the user to input two numbers and raises a TypeError exception if the inputs
+# are not numerical.
 # hint, use the try and except statement to protect against float conversion error using TypeError or ValueError
+try:
+    num1 = float(input())
+    num2 = float(input())
+except TypeError:
+    print("Please enter a number")
 # - Write a Python program that executes an operation on a list and handles an IndexError exception if the index is out of range
-# - Write a Python program that prompts the user to input a number and keep printing the input, it handles a KeyboardInterrupt exception if the user cancels the input loop.
-# Hint, exception KeyboardInterrupt: Raised when the user hits the interrupt key (normally Control-C or Delete). 
-# # During execution, a check for interrupts is made regularly. The exception inherits from BaseException so as to not be accidentally caught by code that catches Exception and thus prevent the interpreter from exiting.  
-# - Write a program to implement a stop watch. The stop watch should start when the user presses the enter key and stop when the user presses the enter key again.
+list = [1,2,3,4,5]
+try:
+    print(list[0] * 5)
+except IndexError:
+    print("index out of range")
+# - Write a Python program that prompts the user to input a number and keep printing the input, it handles a KeyboardInterrupt
+# exception if the user cancels the input loop.
+# Hint, exception KeyboardInterrupt: Raised when the user hits the interrupt key (normally Control-C or Delete).
+# During execution, a check for interrupts is made regularly. The exception inherits from BaseException so as to not be
+# accidentally caught by code that catches Exception and thus prevent the interpreter from exiting.
+import sys
+while True:
+    try:
+        print("a")
+    except KeyboardInterrupt:
+        sys.exit()
+# - Write a program to implement a stop watch. The stop watch should start when the user presses the enter key and stop when
+# the user presses the enter key again.
 # Hint, use the time.time() function to measure the time when enter pressed first and secnd time and find the difference.
 # e.g., elapsed_time = (end_time - start_time)
+
+import time
+
+input()
+time_start = time.time()
+input()
+time_end = time.time()
+time_elapsed = time_end - time_start
+print(time_elapsed)
+
 # - Write a Python program to measure the execution time of a function using the time module.
 # Hint, use the time.time() function to measure the time before and after the function execution.
-# To get some large time execution, use the time.sleep() function to pause the program for a few seconds. Or use a large loop to make the program run for a longer time.
+# To get some large time execution, use the time.sleep() function to pause the program for a few seconds.
+# Or use a large loop
+# to make the program run for a longer time.
 
+import time
 
+def main():
+    time_start = time.time()
+    hallo()
+    time_end = time.time()
+    time_elapsed = time_end - time_start
+    print(time_elapsed)
 
+def hallo():
+    time.sleep(10)
+
+if __name__ == "__main__":
+    main()
+
+"""
 #################################################################
 #Project 
 
@@ -130,7 +176,8 @@ except CustomError as e:
 
 #### Objective:
 """
-The goal of this project is to develop a Python program that allows users to continuously input personal data (name and age) and the date of the input for an infinite number of individuals. 
+The goal of this project is to develop a Python program that allows users to continuously input personal data (name and age) 
+and the date of the input for an infinite number of individuals. 
 The program will store this data in a list of 'Person' objects and will handle user interruptions and invalid inputs age <0).
 
 #### Project Description:
@@ -160,3 +207,36 @@ Create a Python program that performs the following tasks:
 7. **Display Collected Data**:
    - After the input process is terminated, print the list of all 'Person' objects entered by the user.
 """
+import datetime
+import sys
+
+class Person:
+    persons = []
+    def __init__(self, name, age, date):
+        self.name = name
+        self.age = age
+        self.date = date
+
+    def __str__(self):
+        return f"{self.name}({self.age}{self.date})"
+
+    def add_person(self, person):
+        self.persons.append(person)
+        print("Person added sucessfully")
+
+
+def main():
+    while True:
+        try:
+            print("Input process started")
+            name = input("Name: ")
+            age = int(input("Age: "))
+            date = datetime.datetime.now()
+            person = Person(name, age, date)
+            person.add_person(person)
+        except KeyboardInterrupt:
+            print(Person.persons)
+            sys.exit()
+
+if __name__ == '__main__':
+    main()

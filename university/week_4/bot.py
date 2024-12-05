@@ -115,6 +115,7 @@ if __name__ == '__main__':
     main()
 
 """
+
 """
 import sys
 
@@ -167,15 +168,18 @@ int main() {
     return 0;
 }
 """
-import numpy as np
 
-x = np.array([[1, 2], [3, 4]], dtype=np.float64)
-y = np.array([[5, 6], [7, 8]], dtype=np.float64)
+import time
 
-z = np.zeros_like(x)
+def main():
+    time_start = time.time()
+    hallo()
+    time_end = time.time()
+    time_elapsed = time_end - time_start
+    print(time_elapsed)
 
-for i in range(len(x)):
-    for j in range(len(x[0])):
-        z[i][j] = x[i][j] + y[i][j]
+def hallo():
+    time.sleep(10)
 
-print(z)
+if __name__ == "__main__":
+    main()
