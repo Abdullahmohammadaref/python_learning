@@ -182,12 +182,12 @@ The program will store this data in a list of 'Person' objects and will handle u
 
 #### Project Description:
 Create a Python program that performs the following tasks:
-1. **Define a 'Person' Class**:
+@1. **Define a 'Person' Class**:
    - The class should have three attributes: 'name', 'age', 'date'.
    - Implement an '__init__' method to initialize these attributes.
    - Implement an '__str__' method to provide a readable string representation of the object.
 
-2. **Collect User Input**:
+@2. **Collect User Input**:
    - Continuously prompt the user to enter the name and age of a person.
    - The program reads the system date and clock as the input date when the person data is entered correctly
    - Store each person's data as an instance of the 'Person' class in a list.
@@ -196,47 +196,52 @@ Create a Python program that performs the following tasks:
    - Implement error handling to manage invalid inputs (e.g., non-integer ages, negative ages).
    - Use a 'try-except' block to catch 'ValueError' exceptions and prompt the user to re-enter the data.
 
-4. **Graceful Termination**:
+@4. **Graceful Termination**:
    - Allow the user to stop the input process using a keyboard interrupt (Ctrl+C).
    - Use a 'try-except' block to catch the 'KeyboardInterrupt' exception and terminate the input loop gracefully.
 
-5. **Print a confirmation that a person is correctly added to the list**
+@5. **Print a confirmation that a person is correctly added to the list**
 
-6. **Print any message with each iteration, regardless there is a valid input or not**
+@6. **Print any message with each iteration, regardless there is a valid input or not**
 
-7. **Display Collected Data**:
+@7. **Display Collected Data**:
    - After the input process is terminated, print the list of all 'Person' objects entered by the user.
 """
 import datetime
 import sys
 
 class Person:
-    persons = []
+
     def __init__(self, name, age, date):
         self.name = name
         self.age = age
         self.date = date
 
     def __str__(self):
-        return f"{self.name}({self.age}{self.date})"
-
-    def add_person(self, person):
-        self.persons.append(person)
-        print("Person added sucessfully")
-
+        return f"Name: {self.name}, Age: {self.age}, Date: {self.date}"
 
 def main():
+    persons = []
     while True:
         try:
             print("Input process started")
             name = input("Name: ")
+            if not name.isalpha():
+                raise ValueError("Name must only contain letters and spaces")
             age = int(input("Age: "))
+            if age < 0:
+                raise ValueError("Age should be a number greater than 0.")
             date = datetime.datetime.now()
             person = Person(name, age, date)
-            person.add_person(person)
+            persons.append(person)
+            print("person added sucessfully")
         except KeyboardInterrupt:
-            print(Person.persons)
+            print("\npersons:")
+            for person in persons:
+                print(f"-{person}")
             sys.exit()
+        except ValueError as e:
+            print(f"Invalid input: {e}")
 
 if __name__ == '__main__':
     main()
