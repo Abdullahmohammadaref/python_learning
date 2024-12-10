@@ -6,6 +6,10 @@ https://www.immonet.de/expose/51ef16f8-1adc-4c71-ab99-e0eab249cb3d?ln=classified
 
 https://www.immonet.de/expose/df2b0190-c8f6-4f7b-a41b-a97356693abd
 
+317::
+
+https://www.immonet.de/expose/8f199ac4-925f-4bc2-8410-e52a91c510c7?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
+
 337:
 
 https://www.immonet.de/expose/bbf4d5ad-15ed-4894-a533-e10c8f464432?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
