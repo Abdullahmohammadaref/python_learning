@@ -6,13 +6,29 @@ https://www.immonet.de/expose/51ef16f8-1adc-4c71-ab99-e0eab249cb3d?ln=classified
 
 https://www.immonet.de/expose/df2b0190-c8f6-4f7b-a41b-a97356693abd
 
+307::
+
+https://www.howoge.de/immobiliensuche/wohnungssuche/detail/1771-12778-20.html?t=ibw
+
+312::
+
+https://www.howoge.de/immobiliensuche/wohnungssuche/detail/1771-12735-13.html?t=ibw
+
 317::
 
 https://www.immonet.de/expose/8f199ac4-925f-4bc2-8410-e52a91c510c7?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
 
+324::
+
+https://immosuche.degewo.de/de/properties/W1400-40124-0030-0103.html
+
 337:
 
 https://www.immonet.de/expose/bbf4d5ad-15ed-4894-a533-e10c8f464432?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
+
+338::
+
+https://immosuche.degewo.de/de/properties/W1400-40109-0220-0404.html
 
 339:
 
@@ -22,15 +38,29 @@ https://www.immonet.de/expose/e5f93ee2-4b65-4b02-9b20-23a38c7f6ad4?ln=classified
 
 https://www.immonet.de/expose/1f55b630-e70f-451c-9ef8-40aac3039889?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26page%3D2%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
 
+421::
+
+https://www.deutsche-wohnen.com/expose/object/89-1527810012
+
 434:
 
 https://www.immonet.de/expose/135faa9a-1318-43f6-bfc9-087b904b39d5
 
 446:
+
 https://www.immonet.de/expose/8e2fa346-1ebc-425f-bc18-efa6c2ef6072
 
+447::
+
+https://www.deutsche-wohnen.com/expose/object/89-1639810006
+
 458:
+
 https://www.immonet.de/expose/f856398f-9618-46c2-b5ac-f47eafee1f0f
+
+463::
+
+https://www.deutsche-wohnen.com/expose/object/89-1528410011
 
 472:
 
@@ -59,6 +89,10 @@ https://www.immonet.de/expose/a5be27c1-a85a-4bd5-9b76-e8a18d2a0f65
 533:
 
 https://www.immonet.de/expose/585b2a3a-a9fc-45bc-80f0-b4725d16cfc3
+
+535::
+
+https://www.deutsche-wohnen.com/expose/object/89-1654390004
 
 549:
 
@@ -92,6 +126,38 @@ https://www.immonet.de/expose/89d8f723-87d0-403a-ba3f-84804f631ab8?ln=classified
 
 https://www.immonet.de/expose/7b633a5a-7939-4221-abf6-a5d528ae5aab
 
+581::
+
+https://www.deutsche-wohnen.com/expose/object/89-1443580003
+
 582:
 
 https://www.immonet.de/expose/4920f571-0577-4a14-99cf-b83122142c0b?ln=classified_search_results&serp_view=list&search=distributionTypes%3DRent%26estateTypes%3DHouse%2CApartment%26locations%3DAD08DE8634%26page%3D11%26order%3DPriceAsc&m=classified_search_results_classified_classified_detail
+
+579::
+
+https://www.deutsche-wohnen.com/expose/object/89-1710820010
+
+590::
+
+https://www.deutsche-wohnen.com/expose/object/89-1654330010
+
+612::
+
+https://www.deutsche-wohnen.com/expose/object/89-1640120036
+
+631::
+
+https://www.deutsche-wohnen.com/expose/object/89-1526390008
+
+648::
+
+https://www.deutsche-wohnen.com/expose/object/89-1669450011
+
+669::
+
+https://www.deutsche-wohnen.com/expose/object/89-1612870005
+
+688::
+
+https://www.deutsche-wohnen.com/expose/object/89-1653540011
