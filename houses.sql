@@ -66,4 +66,9 @@ WHERE date_time > '2024-12-10 19:50:54'
 AND I_status = 'request not sent';
 
 SELECT * FROM houses
+WHERE website = 'howoge'
+AND I_status = 'request not sent'
+AND WBS = 0;
+
+SELECT * FROM houses;
 WHERE website = 'howoge';
