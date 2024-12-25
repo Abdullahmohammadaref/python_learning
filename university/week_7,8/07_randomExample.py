@@ -78,7 +78,49 @@ print(np.sqrt(16))
 #################
 # - Create a list of greetings and write a function which randomly greets a
 # person with a given name
+import random
+
+def random_greeting(name, greeting):
+    random_greeting = random.choice(greetings)
+    return f"{random_greeting} {name}"
+
+def main():
+    greetings = ["Hello", "Hello, how are you", "yoooo", "wazaaaaaaaaaaaaaaaaa"]
+    name = input("What is your name? ")
+    print(random_greeting(name, greetings))
+
+if __name__ == "__main__":
+    main()
+
 # - Create a list of numbers and use the random module to shuffle the list
+
+numbers = [1, 2, 3, 4, 5]
+
+print(random.shuffle(numbers))
+
 # - Create a list of numbers and use the random module to randomly select
 # a number from the list
+
+numbers = [1, 2, 3, 4, 5]
+print(random.choice(numbers))
+
 # - Create a sccript that generate a 100 random password including numbers and chars and save values in CSV file
+
+import csv
+import random
+import string
+
+
+def random_password():
+    characters = string.ascii_letters + string.digits
+    password = random.sample(characters, 10)
+    return ''.join(password)
+
+def main():
+    with open("passwords.csv", "w", newline="") as f:
+        csv_writer = csv.writer(f)
+        for i in range(100):
+            csv_writer.writerow([random_password()])
+
+if __name__ == "__main__":
+    main()

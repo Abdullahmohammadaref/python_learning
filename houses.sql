@@ -71,4 +71,4 @@ AND I_status = 'request not sent'
 AND WBS = 0;
 
 SELECT * FROM houses;
-WHERE website = 'howoge';
+

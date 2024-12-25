@@ -74,7 +74,7 @@ print(np.sqrt(16))
 # read csv file 
 
 import csv
-with open('noisy-dataA.csv', newline='') as csvfile:
+with open('../week_9/noisy-dataA.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
     for row in spamreader:
         print(', '.join(row))
@@ -82,7 +82,7 @@ with open('noisy-dataA.csv', newline='') as csvfile:
 import csv
 
 # Open the CSV file
-with open('noisy-dataA.csv', mode='r') as file:
+with open('../week_9/noisy-dataA.csv', mode='r') as file:
     # Create a CSV reader object
     csv_reader = csv.reader(file)
     
@@ -101,7 +101,7 @@ for row in data[:5]:
         
 # read csv file "noisy-dataA.csv" and calculate the mean of the second column
 import csv
-with open('noisy-dataA.csv', newline='') as csvfile:
+with open('../week_9/noisy-dataA.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
     sum = 0
     count = 0
