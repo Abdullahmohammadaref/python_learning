@@ -164,33 +164,29 @@ class MinesweeperAI:
         return random.choice(possible_moves) if possible_moves else None
     """
 
-changed = True
-while changed:
-    changed = False
-    new_mines = set()
-    new_safes = set()
-    for sentence in self.knowledge:
-        known_mines = sentence.known_mines()
-        known_safes = sentence.known_safes()
-        if known_mines:
-            new_mines.update(known_mines)
-        if known_safes:
-            new_safes.update(known_safes)
-        for mine in new_mines:
-            if mine not in self.mines:  ###
-                self.mark_mine(mine)
-                changed = True
-        for safe in known_safes:
-            if safe not in self.safes:  ###
-                self.mark_safe(safe)
-                changed = True
-    new_knowledge = []
-    for sentence in self.knowledge:
-        if sentence.cells:  # Assuming 'edits' is a condition/attribute
-            new_knowledge.append(sentence)
-    self.knowledge = new_knowledge
+meeeee
 
+    changed = True
+    while changed:
+        changed = False
+        for sentence in self.knowledge:
+            if sentence.known_mines():
+                for mine in sentence.known_mines():  ## i think here we can either say cells of known mines
+                    if mine not in self.mines:  ###
+                        self.mark_mine(mine)
+                        changed = True
+            elif sentence.known_safes():
+                for safe in sentence.known_safes():  ## same as two comments above
+                    if safe not in self.safes:  ###
+                        self.mark_safe(safe)
+                        changed = True
+        new_knowledge = []
+        for sentence in self.knowledge:
+            if sentence.cells:  # Assuming 'edits' is a condition/attribute
+                new_knowledge.append(sentence)
+        self.knowledge = new_knowledge
 
+meeeee
 
     for sentence1 in self.knowledge:
         for sentence2 in self.knowledge:

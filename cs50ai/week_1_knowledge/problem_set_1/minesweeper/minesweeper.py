@@ -1,6 +1,5 @@
 import random
 
-
 class Minesweeper():
     """
     Minesweeper game representation
@@ -216,17 +215,23 @@ class MinesweeperAI():
         changed = True
         while changed:
             changed = False
+            new_mines = set()
+            new_safes = set()
             for sentence in self.knowledge:
-                if sentence.known_mines():
-                    for mine in sentence.cells:    ## i think here we can either say cells of known mines
-                       if mine not in self.mines:  ###
-                          self.mark_mine(mine)
-                          changed = True
-                elif sentence.known_safes():
-                    for safe in sentence.cells:      ## same as two comments above
-                       if safe not in self.safes: ###
-                          self.mark_safe(safe)
-                          changed = True
+                known_mines = sentence.known_mines()
+                known_safes = sentence.known_safes()
+                if known_mines:
+                    new_mines.update(known_mines)
+                if known_safes:
+                    new_safes.update(known_safes)
+                for mine in new_mines:
+                    if mine not in self.mines:  ###
+                        self.mark_mine(mine)
+                        changed = True
+                for safe in new_safes:
+                    if safe not in self.safes:  ###
+                        self.mark_safe(safe)
+                        changed = True
             new_knowledge = []
             for sentence in self.knowledge:
                 if sentence.cells:  # Assuming 'edits' is a condition/attribute
