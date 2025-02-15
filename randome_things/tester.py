@@ -163,9 +163,6 @@ class MinesweeperAI:
                     possible_moves.append(move)
         return random.choice(possible_moves) if possible_moves else None
     """
-
-meeeee
-
     changed = True
     while changed:
         changed = False
@@ -185,8 +182,6 @@ meeeee
             if sentence.cells:  # Assuming 'edits' is a condition/attribute
                 new_knowledge.append(sentence)
         self.knowledge = new_knowledge
-
-meeeee
 
     for sentence1 in self.knowledge:
         for sentence2 in self.knowledge:
