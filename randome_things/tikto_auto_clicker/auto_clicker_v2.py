@@ -11,11 +11,11 @@ ACTIVE_COLORS = {
 }
 
 # Screen region coordinates (X, Y, Width, Height)
-BUTTON_REGION = (1555, 240, 268, 163)
+BUTTON_REGION = (1269, 247, 243, 158)
 X, Y, WIDTH, HEIGHT = BUTTON_REGION
 
 # Coordinates for the scroll down click
-SCROLL_CLICK = (1463, 560)
+SCROLL_CLICK = (1188, 561)
 
 
 def get_screen_region():
@@ -46,13 +46,13 @@ def perform_clicks(positions):
         time.sleep(2)  # Short pause between different button clicks
 
 def fixer():
-    pyautogui.click(822, 92)
+    pyautogui.click(50, 87)
     time.sleep(10)
-    pyautogui.click(818, 680)
+    pyautogui.click(44, 677)
     time.sleep(10)
-    pyautogui.click(1661, 409)#1176  396        1372   400
+    pyautogui.click(1466, 395)#944  398        1466   395
     time.sleep(10)
-    pyautogui.click(1007 ,664)
+    pyautogui.click(500 ,700)
     time.sleep(10)
 
 def main_loop():
@@ -86,7 +86,7 @@ def main_loop():
 
 
 if __name__ == "__main__":
-    option = input("1 for shut down and 2 for normal closing")
+    option = int(input("1 for shut down and 2 for normal closing"))
     try:
         print("Starting automation... Press Ctrl+C to stop.")
         start_time = time.time()
@@ -97,7 +97,9 @@ if __name__ == "__main__":
             # Shut down the computer using a system command
             os.system("shutdown /s /t 1")  # Shuts down after 1 second
         elif option == 2:
-            pyautogui.click(1886, 24)
+            time.sleep(1)
+            pyautogui.click(1891, 15)
+            time.sleep(1)
             sys.exit()
     except KeyboardInterrupt:
         print("\nAutomation stopped.")

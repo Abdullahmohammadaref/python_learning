@@ -29,7 +29,26 @@ except KeyboardInterrupt:
 
 1007 664
 """
+"""
 print("Move the mouse to the target position...")
 while True:
     x, y = pyautogui.position()
     print(f"X: {x}, Y: {y}", end="\r")
+"""
+import pyautogui
+
+print("Move your mouse to the FIRST corner (e.g., top-left) and press Enter.")
+input()  # Wait for Enter key press
+x1, y1 = pyautogui.position()  # Get first corner coordinates
+
+print("Move your mouse to the SECOND corner (e.g., bottom-right) and press Enter.")
+input()
+x2, y2 = pyautogui.position()  # Get second corner coordinates
+
+# Calculate box properties
+x = min(x1, x2)
+y = min(y1, y2)
+width = abs(x2 - x1)
+height = abs(y2 - y1)
+
+print(f"Box Region:\nX: {x}\nY: {y}\nWidth: {width}\nHeight: {height}")
